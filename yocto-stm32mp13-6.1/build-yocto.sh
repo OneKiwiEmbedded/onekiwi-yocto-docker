@@ -83,13 +83,7 @@ main() {
 
 main "$@"
 
-
-#bitbake st-image-weston
-#bitbake u-boot-stm32mp -c cleanall
-#bitbake tf-a-stm32mp -c cleanall
-#bitbake tf-a-stm32mp -c clean
-#bitbake u-boot-stm32mp
-#bitbake tf-a-stm32mp
-#bitbake st-image-weston
-#bitbake st-image-weston --runall=fetch
-#bitbake st-image-weston -c cleanall
+# DISTRO=openstlinux-weston MACHINE=onekiwi source layers/meta-st/scripts/envsetup.sh build
+# bitbake st-image-weston
+# bitbake u-boot-stm32mp
+# bitbake tf-a-stm32mp
