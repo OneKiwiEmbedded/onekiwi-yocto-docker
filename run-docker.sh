@@ -12,6 +12,7 @@ Example :
   $ $0 rzv2l-3.0.6-update4
   $ $0 rzv2l-3.0.7-update3
   $ $0 rzv2h-v5.20
+  $ $0 luckfox-pico
 EOF
 }
 
@@ -26,6 +27,9 @@ case "$1" in
         ;;
     rzv2h-v5.20)
         YOCTO_NAME="yocto-$1"
+        ;;
+    luckfox-pico)
+        YOCTO_NAME=$1
         ;;
     *)
         usage

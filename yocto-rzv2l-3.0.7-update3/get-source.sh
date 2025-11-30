@@ -1,8 +1,5 @@
 #!/bin/bash
 
-git config --global user.email "productdev@ontech.com.vn"
-git config --global user.name  "OneKiwi"
-
 git clone https://git.yoctoproject.org/git/poky
 cd poky
 git checkout dunfell-23.0.33

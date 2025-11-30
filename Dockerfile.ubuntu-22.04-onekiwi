@@ -37,7 +37,9 @@ RUN \
 		diffstat \
 		unzip \
 		texinfo \
+		gcc \
 		gcc-multilib \
+		g++-multilib \
 		build-essential \
 		chrpath \
 		socat \
@@ -62,7 +64,29 @@ RUN \
 		pylint\
 		python3-git\
 		python3-jinja2\
-		zstd
+		zstd \
+		make \
+		module-assistant \
+		module-assistant \
+		expect \
+		g++ \
+		bison \
+		flex \
+		fakeroot \
+		cmake \
+		gperf \
+		autoconf \
+		device-tree-compiler \
+		libncurses5-dev \
+		pkg-config \
+		bc \
+		python-is-python3 \
+		passwd \
+		openssl \
+		openssh-server \
+		openssh-client \
+		file \
+		rsync
 
 # Setup locales
 RUN \
@@ -83,14 +107,6 @@ RUN adduser --disabled-password --shell /bin/bash \
     --gecos '' ${USERNAME}
 RUN adduser ${USERNAME} sudo
 
-# Configure git using the login user name and gmail
-# NOTE: this is required for yocto but does not need to be a real git account
-#RUN git config --global user.email "${DOCKER_GIT_EMAIL}"
-#RUN git config --global user.name "${DOCKER_GIT_USER}"
-
-RUN git config --global user.email "productdev@ontech.com.vn"
-RUN git config --global user.name "OneKiwi"
-
 # Add to the sudoers list (allow for sudo to run without password)
 RUN echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 
@@ -99,6 +115,9 @@ ENV TERM=xterm-256color
 
 # Start the container with user $USERNAME
 USER $USERNAME
+
+RUN git config --global user.email "productdev@ontech.com.vn"
+RUN git config --global user.name "OneKiwi"
 
 RUN \
 	mkdir -p /home/${USERNAME}/bin && \
